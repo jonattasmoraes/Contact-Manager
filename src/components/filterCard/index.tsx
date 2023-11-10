@@ -1,0 +1,1 @@
+const FilterCard = () => <div></div>
