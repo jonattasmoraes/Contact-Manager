@@ -8,7 +8,39 @@ export const HeaderContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 86.4px;
+
+  @media screen and (min-width: 960px) {
+    background-color: #010409;
+  }
 `
+export const TitleContainer = styled.div`
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+
+export const TitleIcon = styled.div`
+  padding-left: 8px;
+  font-size: 38px;
+  color: #fff;
+  background-color: none;
+  border: none;
+
+  @media screen and (min-width: 960px) {
+    padding-left: 0;
+  }
+`
+
+export const Title = styled.h1`
+  padding-left: 8px;
+  padding-bottom: 6px;
+  color: #f0f6fc;
+  box-sizing: border-box;
+  font-size: 24px;
+  font-weight: 600;
+`
+
 export const ButtonIcon = styled.button`
   font-size: 28px;
   border: none;

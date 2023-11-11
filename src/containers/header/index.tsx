@@ -2,14 +2,11 @@ import { FaBars } from 'react-icons/fa'
 import { IoMdContact } from 'react-icons/io'
 import { ButtonIcon, HeaderContainer } from './styles'
 import {
-  Input,
-  InputContainer,
-  Label,
   Title,
   TitleContainer,
   TitleIcon
-} from '../../components/Input/styles'
-import { LuSearch } from 'react-icons/lu'
+} from '../../containers/header/styles'
+import InputApp from '../../components/Input/index'
 
 interface HeaderProps {
   handleSidebarToggle: () => void
@@ -24,14 +21,9 @@ const Header: React.FC<HeaderProps> = ({ handleSidebarToggle }) => (
       <TitleIcon>
         <IoMdContact />
       </TitleIcon>
-      <Title>Contacts</Title>
+      <Title>Contact Manager</Title>
     </TitleContainer>
-    <InputContainer>
-      <Label htmlFor="search">
-        <LuSearch />
-      </Label>
-      <Input type="text" placeholder="Search..." id="search" maxLength={38} />
-    </InputContainer>
+    <InputApp />
   </HeaderContainer>
 )
 

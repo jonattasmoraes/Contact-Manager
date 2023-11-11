@@ -1,33 +1,5 @@
 import styled from 'styled-components'
 
-export const TitleContainer = styled.div`
-  width: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`
-
-export const TitleIcon = styled.div`
-  padding-left: 8px;
-  font-size: 38px;
-  color: #fff;
-  background-color: #1a202c;
-  border: none;
-
-  @media screen and (min-width: 960px) {
-    padding-left: 0;
-  }
-`
-
-export const Title = styled.h1`
-  padding-left: 8px;
-  padding-bottom: 6px;
-  color: #f0f6fc;
-  box-sizing: border-box;
-  font-size: 24px;
-  font-weight: 600;
-`
-
 export const InputContainer = styled.div`
   position: relative;
 `
@@ -50,20 +22,13 @@ export const Input = styled.input`
     &::placeholder {
       color: #101010;
       transition: 450ms ease-in-out;
+      font-family: roboto, sans-serif;
+      color: #696969;
     }
-  }
-
-  &::placeholder {
-    font-family: roboto, sans-serif;
-    color: #696969;
   }
 
   &:focus {
     border: 2px solid #673dff;
-
-    &::placeholder {
-      color: #101010;
-    }
   }
 
   @media (max-width: 781px) {
@@ -71,7 +36,7 @@ export const Input = styled.input`
   }
 `
 
-export const Label = styled.label`
+export const InputLabel = styled.label`
   position: absolute;
   top: -5px;
   left: 5px;

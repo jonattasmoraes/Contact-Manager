@@ -5,6 +5,8 @@ import IconButton from '@mui/material/IconButton'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { IoCloseSharp } from 'react-icons/io5'
 import { CloseSidebarIcon } from './styles'
+import { Divider, List } from '@mui/material'
+import FilterCard from '../../components/filterCard'
 
 const theme = createTheme({
   palette: {
@@ -60,6 +62,14 @@ export default function MobileSidebar({
                 </CloseSidebarIcon>
               </IconButton>
             </Box>
+            <Divider sx={{ backgroundColor: 'GrayText' }} />
+            <List sx={{ p: 0 }}>
+              <FilterCard />
+              <FilterCard />
+              <FilterCard />
+              <FilterCard />
+              <FilterCard />
+            </List>
           </Box>
         </Drawer>
       </Box>
