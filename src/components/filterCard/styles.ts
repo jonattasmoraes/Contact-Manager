@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+import { Props } from './index'
+
+type PropsNoLegendAndCounter = Omit<Props, 'legend' | 'counter'>
+
 export const Card = styled.div`
   display: flex;
   padding: 8px 16px 8px 18px;
@@ -20,14 +24,14 @@ export const Card = styled.div`
   }
 `
 
-export const Counter = styled.div`
-  color: #fff;
+export const Counter = styled.div<PropsNoLegendAndCounter>`
+  color: ${(props) => (props.active ? '#673dff' : '#fff')};
   font-size: 16px;
   display: flex;
 `
 
-export const Label = styled.div`
-  color: #fff;
+export const Label = styled.div<PropsNoLegendAndCounter>`
+  color: ${(props) => (props.active ? '#673dff' : '#fff')};
   display: flex;
   font-size: 16px;
   padding-right: 24px;

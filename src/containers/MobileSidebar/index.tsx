@@ -64,11 +64,11 @@ export default function MobileSidebar({
             </Box>
             <Divider sx={{ backgroundColor: 'GrayText' }} />
             <List sx={{ p: 0 }}>
-              <FilterCard />
-              <FilterCard />
-              <FilterCard />
-              <FilterCard />
-              <FilterCard />
+              <FilterCard legend="todos" counter={5} />
+              <FilterCard legend="Família" counter={5} />
+              <FilterCard legend="Trabalho" counter={5} />
+              <FilterCard legend="Emergencia" counter={5} />
+              <FilterCard legend="Bloqueado(s)" counter={5} active />
             </List>
           </Box>
         </Drawer>

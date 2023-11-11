@@ -10,12 +10,8 @@ const GlobalStyle = createGlobalStyle`
 `
 
 export const Container = styled.div`
-  padding-top: 18px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 224px 1fr;
-  background-color: #0d1117;
-  box-shadow: 0 0 20px 3px red;
+  display: flex;
+  max-width: 1500px;
 `
 
 export default GlobalStyle
