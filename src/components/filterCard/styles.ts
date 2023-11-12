@@ -6,10 +6,11 @@ type PropsNoLegendAndCounter = Omit<Props, 'legend' | 'counter'>
 
 export const Card = styled.div`
   display: flex;
-  padding: 8px 16px 8px 18px;
+  padding: 8px 16px 8px 16px;
   align-items: center;
   transition: 150ms ease-in-out;
   cursor: pointer;
+  justify-content: space-between;
 
   @media screen and (max-width: 960px) {
     &:hover {
@@ -28,11 +29,11 @@ export const Counter = styled.div<PropsNoLegendAndCounter>`
   color: ${(props) => (props.active ? '#673dff' : '#fff')};
   font-size: 16px;
   display: flex;
+  padding: 4px 16px 4px 16px;
 `
 
 export const Label = styled.div<PropsNoLegendAndCounter>`
   color: ${(props) => (props.active ? '#673dff' : '#fff')};
   display: flex;
   font-size: 16px;
-  padding-right: 24px;
 `

@@ -16,11 +16,11 @@ const App = () => {
     <>
       <GlobalStyle />
       <Header handleSidebarToggle={handleSidebarToggle} />
+      <MobileSidebar
+        isOpen={isSidebarOpen}
+        handleSidebarToggle={handleSidebarToggle}
+      />
       <Container>
-        <MobileSidebar
-          isOpen={isSidebarOpen}
-          handleSidebarToggle={handleSidebarToggle}
-        />
         <Sidebar />
         <ContactList />
       </Container>

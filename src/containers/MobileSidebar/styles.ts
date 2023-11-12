@@ -16,4 +16,8 @@ export const CloseSidebarIcon = styled.button`
     transition: 300ms ease-in-out;
     color: #101010;
   }
+
+  @media screen and (min-width: 959.9px) {
+    display: none;
+  }
 `
