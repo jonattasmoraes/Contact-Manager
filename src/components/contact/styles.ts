@@ -26,19 +26,22 @@ export const MobileTitleContainer = styled.div`
 
 export const ContactTitle = styled.h3`
   width: 38%;
+  padding-left: 6px;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: bold;
 `
 
 export const ContactTitlePhone = styled.h3`
   width: 20%;
+  padding-left: 6px;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: bold;
 `
 
 export const ContactTitleMobile = styled.h3`
+  padding-left: 6px;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: bold;
 
   @media screen and (min-width: 960px) {
     display: none;
@@ -59,12 +62,13 @@ export const ContactData = styled.textarea`
   background-color: transparent;
   height: 40px;
   width: 100%;
-  padding: 6px 16px 0 0px;
+  padding: 6px 16px 0 6px;
   margin-bottom: 8px;
   font-size: 18px;
   font-weight: 600;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  resize: none;
 
   @media screen and (min-width: 960px) {
     display: flex;
@@ -76,12 +80,13 @@ export const ContactDataPhone = styled.textarea`
   background-color: transparent;
   height: 40px;
   width: 100%;
-  padding: 6px 16px 0 0px;
+  padding: 6px 16px 0 6px;
   margin-bottom: 8px;
   font-size: 18px;
   font-weight: 600;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  resize: none;
 
   @media screen and (min-width: 960px) {
     display: flex;
