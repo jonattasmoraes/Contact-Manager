@@ -1,4 +1,27 @@
 import styled from 'styled-components'
+import variables from '../../styles/variables'
+
+type TagProps = {
+  type?: string
+  status?: string
+  phoneType?: string
+}
+
+function returnBackColor(props: TagProps): string {
+  if ('status' in props) {
+    if (props.status === 'Ativo') return variables.lawnGreen
+    if (props.status === 'Bloqueado') return variables.red
+  } else if ('type' in props) {
+    if (props.type === 'Família') return variables.gold
+    if (props.type === 'Amigos') return variables.rebeccaPurple
+    if (props.type === 'Trabalho') return variables.sienna
+    if (props.type === 'Emergência') return variables.orange
+  } else if ('phoneType' in props) {
+    if (props.phoneType === 'Fixo') return variables.navy
+    if (props.phoneType === 'Celular') return variables.blue
+  }
+  return '#ccc'
+}
 
 export const ContactCard = styled.div`
   width: calc(100vw - 60px);
@@ -94,12 +117,12 @@ export const ContactDataPhone = styled.textarea`
   }
 `
 
-export const ContactTag = styled.span`
+export const ContactTag = styled.span<TagProps>`
   padding: 4px 8px;
   color: #fff;
   font-weight: 600;
   font-size: 16px;
-  background-color: #e1a32a;
+  background-color: ${(props) => returnBackColor(props)};
   border-radius: 8px;
   margin-right: 16px;
 `
@@ -120,4 +143,11 @@ export const Button = styled.button`
   cursor: pointer;
   background-color: #2f3640;
   margin-right: 16px;
+`
+export const SaveButton = styled(Button)`
+  background-color: ${variables.green};
+`
+
+export const CancelAndRemoveButton = styled(Button)`
+  background-color: ${variables.red};
 `

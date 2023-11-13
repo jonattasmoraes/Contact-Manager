@@ -6,10 +6,11 @@ type Props = {
   email: string
   phone: string
   type: string
-  state: string
+  status: string
+  phoneType?: string
 }
 
-const Contact = ({ name, email, phone, type, state }: Props) => {
+const Contact = ({ name, email, phone, type, status, phoneType }: Props) => {
   const [itsEditing, setItsEditing] = useState(false)
 
   return (
@@ -27,18 +28,21 @@ const Contact = ({ name, email, phone, type, state }: Props) => {
         <S.ContactTitleMobile>Telefone</S.ContactTitleMobile>
         <S.ContactDataPhone value={phone} />
       </S.DataContainer>
-      <S.ContactTag>{type}</S.ContactTag>
-      <S.ContactTag>{state}</S.ContactTag>
+      <S.ContactTag type={type}>{type}</S.ContactTag>
+      <S.ContactTag status={status}>{status}</S.ContactTag>
+      <S.ContactTag phoneType={phoneType}>{phoneType}</S.ContactTag>
       <S.ActionBar>
         {itsEditing ? (
           <>
-            <S.Button>Salvar</S.Button>
-            <S.Button onClick={() => setItsEditing(true)}>Cancelar</S.Button>
+            <S.SaveButton>Salvar</S.SaveButton>
+            <S.CancelAndRemoveButton onClick={() => setItsEditing(true)}>
+              Cancelar
+            </S.CancelAndRemoveButton>
           </>
         ) : (
           <>
             <S.Button onClick={() => setItsEditing(true)}>Editar</S.Button>
-            <S.Button>Deletar</S.Button>
+            <S.CancelAndRemoveButton>Deletar</S.CancelAndRemoveButton>
           </>
         )}
       </S.ActionBar>

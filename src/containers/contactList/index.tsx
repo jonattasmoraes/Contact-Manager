@@ -7,35 +7,40 @@ const contacts = [
     email: 'jonatas.moraes.09@hotmail.com',
     phone: '(41) 99999-9999',
     type: 'Família',
-    state: 'Ativo'
+    status: 'Ativo',
+    phoneType: 'Celular'
   },
   {
     name: 'Ana Julia',
     email: 'anajulia@hotmail.com',
     phone: '(41) 99999-9999',
     type: 'Amigos',
-    state: 'Ativo'
+    status: 'Bloqueado',
+    phoneType: 'Celular'
   },
   {
     name: 'Tiago Teixeira',
     email: 'tiago100@hotmail.com',
-    phone: '(41) 99999-9999',
+    phone: '(41) 3999-9999',
     type: 'Família',
-    state: 'Ativo'
+    status: 'Ativo',
+    phoneType: 'Fixo'
   },
   {
     name: 'Silvana teles',
     email: 'silvateles@hotmail.com',
-    phone: '(41) 99999-9999',
+    phone: '(41) 3699-9999',
     type: 'Trabalho',
-    state: 'Bloqueado'
+    status: 'Bloqueado',
+    phoneType: 'Fixo'
   },
   {
     name: 'Policia Militar',
     email: 'policia@gov.pr',
     phone: '190',
     type: 'Emergência',
-    state: 'Ativo'
+    status: 'Ativo',
+    phoneType: 'Fixo'
   }
 ]
 
@@ -50,7 +55,8 @@ const ContactList = () => (
             email={c.email}
             phone={c.phone}
             type={c.type}
-            state={c.state}
+            status={c.status}
+            phoneType={c.phoneType}
           />
         </li>
       ))}
