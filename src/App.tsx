@@ -4,6 +4,9 @@ import MobileSidebar from './containers/MobileSidebar'
 import GlobalStyle, { Container } from './styles'
 import Sidebar from './containers/sidebar'
 import ContactList from './containers/contactList'
+import { Provider } from 'react-redux'
+
+import store from './store'
 
 const App = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false)
@@ -13,7 +16,7 @@ const App = () => {
   }
 
   return (
-    <>
+    <Provider store={store}>
       <GlobalStyle />
       <Header handleSidebarToggle={handleSidebarToggle} />
       <MobileSidebar
@@ -24,7 +27,7 @@ const App = () => {
         <Sidebar />
         <ContactList />
       </Container>
-    </>
+    </Provider>
   )
 }
 
