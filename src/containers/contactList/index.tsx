@@ -1,46 +1,56 @@
 import Contact from '../../components/contact'
 import { Container } from './styles'
 
+import * as enums from '../../utils/enums/Contact'
+
 const contacts = [
+  {
+    name: 'Marcos Paulo',
+    email: 'marcospau@hotmail.com',
+    phone: '(41) 99999-9999',
+    type: enums.Type.AMIGOS,
+    status: enums.Status.ATIVO,
+    phoneType: enums.PhoneType.CELULAR
+  },
   {
     name: 'Jônattas Moraes',
     email: 'jonatas.moraes.09@hotmail.com',
     phone: '(41) 99999-9999',
-    type: 'Família',
-    status: 'Ativo',
-    phoneType: 'Celular'
+    type: enums.Type.FAMILIA,
+    status: enums.Status.ATIVO,
+    phoneType: enums.PhoneType.CELULAR
   },
   {
     name: 'Ana Julia',
     email: 'anajulia@hotmail.com',
     phone: '(41) 99999-9999',
-    type: 'Amigos',
-    status: 'Bloqueado',
-    phoneType: 'Celular'
+    type: enums.Type.AMIGOS,
+    status: enums.Status.BLOQUEADO,
+    phoneType: enums.PhoneType.CELULAR
   },
   {
     name: 'Tiago Teixeira',
     email: 'tiago100@hotmail.com',
     phone: '(41) 3999-9999',
-    type: 'Família',
-    status: 'Ativo',
-    phoneType: 'Fixo'
+    type: enums.Type.FAMILIA,
+    status: enums.Status.ATIVO,
+    phoneType: enums.PhoneType.FIXO
   },
   {
     name: 'Silvana teles',
     email: 'silvateles@hotmail.com',
     phone: '(41) 3699-9999',
-    type: 'Trabalho',
-    status: 'Bloqueado',
-    phoneType: 'Fixo'
+    type: enums.Type.TRABALHO,
+    status: enums.Status.BLOQUEADO,
+    phoneType: enums.PhoneType.FIXO
   },
   {
     name: 'Policia Militar',
     email: 'policia@gov.pr',
     phone: '190',
-    type: 'Emergência',
-    status: 'Ativo',
-    phoneType: 'Fixo'
+    type: enums.Type.EMERGENCIA,
+    status: enums.Status.ATIVO,
+    phoneType: enums.PhoneType.FIXO
   }
 ]
 

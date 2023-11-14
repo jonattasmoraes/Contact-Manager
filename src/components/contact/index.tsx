@@ -1,13 +1,15 @@
 import { useState } from 'react'
 import * as S from './styles'
 
+import * as enums from '../../utils/enums/Contact'
+
 type Props = {
   name: string
   email: string
   phone: string
-  type: string
-  status: string
-  phoneType?: string
+  type: enums.Type
+  status: enums.Status
+  phoneType: enums.PhoneType
 }
 
 const Contact = ({ name, email, phone, type, status, phoneType }: Props) => {
@@ -28,9 +30,15 @@ const Contact = ({ name, email, phone, type, status, phoneType }: Props) => {
         <S.ContactTitleMobile>Telefone</S.ContactTitleMobile>
         <S.ContactDataPhone value={phone} />
       </S.DataContainer>
-      <S.ContactTag type={type}>{type}</S.ContactTag>
-      <S.ContactTag status={status}>{status}</S.ContactTag>
-      <S.ContactTag phoneType={phoneType}>{phoneType}</S.ContactTag>
+      <S.ContactTag parameter="type" type={type}>
+        {type}
+      </S.ContactTag>
+      <S.ContactTag parameter="status" status={status}>
+        {status}
+      </S.ContactTag>
+      <S.ContactTag parameter="phoneType" phoneType={phoneType}>
+        {phoneType}
+      </S.ContactTag>
       <S.ActionBar>
         {itsEditing ? (
           <>

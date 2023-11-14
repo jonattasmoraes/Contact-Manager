@@ -1,24 +1,27 @@
 import styled from 'styled-components'
 import variables from '../../styles/variables'
 
+import * as enums from '../../utils/enums/Contact'
+
 type TagProps = {
-  type?: string
-  status?: string
-  phoneType?: string
+  type?: enums.Type
+  status?: enums.Status
+  phoneType?: enums.PhoneType
+  parameter: 'status' | 'type' | 'phoneType'
 }
 
 function returnBackColor(props: TagProps): string {
-  if ('status' in props) {
-    if (props.status === 'Ativo') return variables.lawnGreen
-    if (props.status === 'Bloqueado') return variables.red
-  } else if ('type' in props) {
-    if (props.type === 'Família') return variables.gold
-    if (props.type === 'Amigos') return variables.rebeccaPurple
-    if (props.type === 'Trabalho') return variables.sienna
-    if (props.type === 'Emergência') return variables.orange
-  } else if ('phoneType' in props) {
-    if (props.phoneType === 'Fixo') return variables.navy
-    if (props.phoneType === 'Celular') return variables.blue
+  if (props.parameter === 'status') {
+    if (props.status === enums.Status.ATIVO) return variables.green
+    if (props.status === enums.Status.BLOQUEADO) return variables.red
+  } else if (props.parameter === 'type') {
+    if (props.type === enums.Type.FAMILIA) return variables.gold
+    if (props.type === enums.Type.AMIGOS) return variables.rebeccaPurple
+    if (props.type === enums.Type.TRABALHO) return variables.sienna
+    if (props.type === enums.Type.EMERGENCIA) return variables.orange
+  } else if (props.parameter === 'phoneType') {
+    if (props.phoneType === enums.PhoneType.FIXO) return variables.navy
+    if (props.phoneType === enums.PhoneType.CELULAR) return variables.blue
   }
   return '#ccc'
 }
