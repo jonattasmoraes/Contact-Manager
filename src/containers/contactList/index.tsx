@@ -1,19 +1,21 @@
 import { useSelector } from 'react-redux'
-
-import { Container } from './styles'
-import Contact from '../../components/contact'
 import { RootReducer } from '../../store'
 
+import { Container } from './styles'
+
+import Contact from '../../components/contact'
+
 const ContactList = () => {
-  const { contacts } = useSelector((state: RootReducer) => state)
+  const { items } = useSelector((state: RootReducer) => state.contacts)
 
   return (
     <Container>
       <p>cinco contatos marcados para amanhã</p>
       <ul>
-        {contacts.map((c) => (
+        {items.map((c) => (
           <li key={c.name}>
             <Contact
+              id={c.id}
               name={c.name}
               email={c.email}
               phone={c.phone}
