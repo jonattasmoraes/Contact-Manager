@@ -6,18 +6,46 @@ import { RootReducer } from '../../store'
 
 const ContactList: React.FC = () => {
   const { items } = useSelector((state: RootReducer) => state.contacts)
-  const { term } = useSelector((state: RootReducer) => state.filter)
+  const { term, critery, value } = useSelector(
+    (state: RootReducer) => state.filter
+  )
 
   const contactsFilter = () => {
-    const searchTerm = term.toLowerCase()
-    return items.filter(
-      (item) => item.name.toLowerCase().indexOf(searchTerm) !== -1
-    )
+    let filteredContacts = items
+
+    if (term !== undefined) {
+      filteredContacts = filteredContacts.filter(
+        (item) => item.name.toLowerCase().indexOf(term.toLowerCase()) !== -1
+      )
+
+      if (critery === 'type') {
+        filteredContacts = filteredContacts.filter(
+          (item) => item.type === value
+        )
+      } else if (critery === 'status') {
+        filteredContacts = filteredContacts.filter(
+          (item) => item.status === value
+        )
+      } else if (critery === 'phoneType') {
+        filteredContacts = filteredContacts.filter(
+          (item) => item.phoneType === value
+        )
+      }
+
+      return filteredContacts
+    } else {
+      return items
+    }
   }
 
   return (
     <Container>
       <p>cinco contatos marcados como: opcao e {term}</p>
+      <ul>
+        <li>{term}</li>
+        <li>{critery}</li>
+        <li>{value}</li>
+      </ul>
       <ul>
         {contactsFilter().map((c) => (
           <li key={c.name}>

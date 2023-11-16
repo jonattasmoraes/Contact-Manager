@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-import { Props } from './index'
-
-type PropsNoLegendAndCounter = Omit<Props, 'legend' | 'counter'>
+type Props = {
+  active: boolean
+}
 
 export const Card = styled.div`
   display: flex;
@@ -25,14 +25,14 @@ export const Card = styled.div`
   }
 `
 
-export const Counter = styled.div<PropsNoLegendAndCounter>`
+export const Counter = styled.div<Props>`
   color: ${(props) => (props.active ? '#673dff' : '#fff')};
   font-size: 16px;
   display: flex;
   padding: 4px 16px 4px 16px;
 `
 
-export const Label = styled.div<PropsNoLegendAndCounter>`
+export const Label = styled.div<Props>`
   color: ${(props) => (props.active ? '#673dff' : '#fff')};
   display: flex;
   font-size: 16px;

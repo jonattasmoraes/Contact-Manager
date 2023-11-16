@@ -8,6 +8,8 @@ import { CloseSidebarIcon } from './styles'
 import { Divider, List } from '@mui/material'
 import FilterCard from '../../components/filterCard'
 
+import * as enums from '../../utils/enums/Contact'
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -64,11 +66,47 @@ export default function MobileSidebar({
             </Box>
             <Divider sx={{ backgroundColor: 'GrayText' }} />
             <List sx={{ p: 0 }}>
-              <FilterCard legend="Todos" counter={5} />
-              <FilterCard legend="Família" counter={5} />
-              <FilterCard legend="Trabalho" counter={5} />
-              <FilterCard legend="Emergencia" counter={5} />
-              <FilterCard legend="Bloqueado(s)" counter={59999999} active />
+              <FilterCard
+                value={enums.Type.FAMILIA}
+                critery="type"
+                legend="Família"
+              />
+              <FilterCard
+                value={enums.Type.AMIGOS}
+                critery="type"
+                legend="Amigos"
+              />
+              <FilterCard
+                value={enums.Type.TRABALHO}
+                critery="type"
+                legend="Trabalho"
+              />
+              <FilterCard
+                value={enums.Type.EMERGENCIA}
+                critery="type"
+                legend="Emergência"
+              />
+              <FilterCard
+                value={enums.PhoneType.CELULAR}
+                critery="phoneType"
+                legend="Celular"
+              />
+              <FilterCard
+                value={enums.PhoneType.FIXO}
+                critery="phoneType"
+                legend="Fixo"
+              />
+              <FilterCard
+                value={enums.Status.ATIVO}
+                critery="status"
+                legend="Ativo(s)"
+              />
+              <FilterCard
+                value={enums.Status.BLOQUEADO}
+                critery="status"
+                legend="Bloqueado(s)"
+              />
+              <FilterCard critery="all" legend="Todos" />
             </List>
           </Box>
         </Drawer>
