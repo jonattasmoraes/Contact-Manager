@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 
 import * as S from './styles'
+import * as enums from '../../utils/enums/Contact'
 
 import { remove, edit } from '../../store/reducers/contacts'
 import ContactClass from '../../models/Contact'
@@ -19,32 +20,23 @@ const Contact = ({
 }: Props) => {
   const dispatch = useDispatch()
   const [itsEditing, setItsEditing] = useState(false)
-  const [name, setName] = useState(originalName)
-  const [email, setEmail] = useState(originalEmail)
-  const [phone, setPhone] = useState(originalPhone)
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
 
   useEffect(() => {
     if (originalName.length > 0) {
-      setItsEditing
       setName(originalName)
     }
-  }, [originalName])
-
-  useEffect(() => {
     if (originalEmail.length > 0) {
-      setItsEditing
-      setName(originalEmail)
+      setEmail(originalEmail)
     }
-  }, [originalEmail])
-
-  useEffect(() => {
     if (originalPhone.length > 0) {
-      setItsEditing
-      setName(originalPhone)
+      setPhone(originalPhone)
     }
-  }, [originalPhone])
+  }, [originalName, originalEmail, originalPhone])
 
-  function handleRemove() {
+  function cancelEdit() {
     setItsEditing(false)
     setName(originalName)
     setEmail(originalEmail)
@@ -62,20 +54,20 @@ const Contact = ({
         <S.ContactTitleMobile>Nome do contato</S.ContactTitleMobile>
         <S.ContactData
           disabled={!itsEditing}
-          onChange={(e) => setName(e.target.value)}
           value={name}
+          onChange={(event) => setName(event.target.value)}
         />
         <S.ContactTitleMobile>E-mail</S.ContactTitleMobile>
         <S.ContactData
           disabled={!itsEditing}
-          onChange={(e) => setEmail(e.target.value)}
           value={email}
+          onChange={(event) => setEmail(event.target.value)}
         />
         <S.ContactTitleMobile>Telefone</S.ContactTitleMobile>
         <S.ContactDataPhone
           disabled={!itsEditing}
-          onChange={(e) => setPhone(e.target.value)}
           value={phone}
+          onChange={(event) => setPhone(event.target.value)}
         />
       </S.DataContainer>
       <S.ContactTag parameter="type" type={type}>
@@ -109,7 +101,7 @@ const Contact = ({
               Salvar
             </S.SaveButton>
 
-            <S.CancelAndRemoveButton onClick={handleRemove}>
+            <S.CancelAndRemoveButton onClick={cancelEdit}>
               Cancelar
             </S.CancelAndRemoveButton>
           </>

@@ -1,3 +1,4 @@
+import React from 'react'
 import { FaBars } from 'react-icons/fa'
 import { IoMdContact } from 'react-icons/io'
 import { ButtonIcon, HeaderContainer } from './styles'

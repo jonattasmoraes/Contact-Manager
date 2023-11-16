@@ -2,11 +2,11 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import Contact from '../../models/Contact'
 import * as enums from '../../utils/enums/Contact'
 
-type contactState = {
+type ContactsState = {
   items: Contact[]
 }
 
-const initialState: contactState = {
+const initialState: ContactsState = {
   items: [
     {
       name: 'Ana Beatriz',
