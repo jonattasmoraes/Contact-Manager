@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 
 import * as S from './styles'
-import * as enums from '../../utils/enums/Contact'
 
 import { remove, edit } from '../../store/reducers/contacts'
 import ContactClass from '../../models/Contact'

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { Container } from './styles'
+import { ContactParagraph, Container } from './styles'
 import Contact from '../../components/contact'
 import { RootReducer } from '../../store'
 
@@ -38,16 +38,28 @@ const ContactList: React.FC = () => {
     }
   }
 
+  const contactsMessage = (quantity: number) => {
+    let message = ''
+    const complement =
+      term !== undefined && term.length > 0 ? `e termo "${term}"` : ''
+
+    if (critery === 'all') {
+      message = `${quantity} contato(s) marcado(s) como: "Todos" ${complement}`
+    } else {
+      message = `${quantity} contato(s) marcado(s) como: "${value}" ${complement}`
+    }
+
+    return message
+  }
+
+  const Contacts = contactsFilter()
+  const message = contactsMessage(Contacts.length)
+
   return (
     <Container>
-      <p>cinco contatos marcados como: opcao e {term}</p>
+      <ContactParagraph>{message}</ContactParagraph>
       <ul>
-        <li>{term}</li>
-        <li>{critery}</li>
-        <li>{value}</li>
-      </ul>
-      <ul>
-        {contactsFilter().map((c) => (
+        {Contacts.map((c) => (
           <li key={c.name}>
             <Contact
               id={c.id}

@@ -9,3 +9,12 @@ export const Container = styled.main`
     display: inline-block;
   }
 `
+export const ContactParagraph = styled.p`
+  font-weight: 600;
+  padding: 8px 0 8px 0;
+  padding-left: 22px;
+
+  @media screen and (min-width: 959.9px) {
+    padding-left: 28px;
+  }
+`
