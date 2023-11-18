@@ -147,9 +147,6 @@ export const Button = styled.button`
   background-color: #2f3640;
   margin-right: 16px;
 `
-export const SaveButton = styled(Button)`
-  background-color: ${variables.green};
-`
 
 export const CancelAndRemoveButton = styled(Button)`
   background-color: ${variables.red};

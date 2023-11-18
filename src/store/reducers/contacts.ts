@@ -99,10 +99,22 @@ const contactSlice = createSlice({
       if (contactIndex >= 0) {
         state.items[contactIndex] = action.payload
       }
+    },
+    add: (state, action: PayloadAction<Contact>) => {
+      const contactExists = state.items.find(
+        (contact) =>
+          contact.name.toLowerCase() === action.payload.name.toLowerCase()
+      )
+
+      if (contactExists) {
+        alert('Contato já existe')
+      } else {
+        state.items.push(action.payload)
+      }
     }
   }
 })
 
-export const { remove, edit } = contactSlice.actions
+export const { remove, edit, add } = contactSlice.actions
 
 export default contactSlice.reducer

@@ -10,7 +10,7 @@ class Contact {
   id: number
 
   constructor(
-    title: string,
+    name: string,
     email: string,
     phone: string,
     type: enums.Type,
@@ -18,7 +18,7 @@ class Contact {
     phoneType: enums.PhoneType,
     id: number
   ) {
-    this.name = title
+    this.name = name
     this.email = email
     this.phone = phone
     this.type = type

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { ContactParagraph, Container } from './styles'
+import { Title, MainContainer } from '../../styles/index'
 import Contact from '../../components/contact'
 import { RootReducer } from '../../store'
 
@@ -56,8 +56,8 @@ const ContactList: React.FC = () => {
   const message = contactsMessage(Contacts.length)
 
   return (
-    <Container>
-      <ContactParagraph>{message}</ContactParagraph>
+    <MainContainer>
+      <Title as="p">{message}</Title>
       <ul>
         {Contacts.map((c) => (
           <li key={c.name}>
@@ -73,7 +73,7 @@ const ContactList: React.FC = () => {
           </li>
         ))}
       </ul>
-    </Container>
+    </MainContainer>
   )
 }
 

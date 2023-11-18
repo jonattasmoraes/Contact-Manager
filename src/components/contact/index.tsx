@@ -5,6 +5,7 @@ import * as S from './styles'
 
 import { remove, edit } from '../../store/reducers/contacts'
 import ContactClass from '../../models/Contact'
+import { SaveButton } from '../../styles'
 
 type Props = ContactClass
 
@@ -81,7 +82,7 @@ const Contact = ({
       <S.ActionBar>
         {itsEditing ? (
           <>
-            <S.SaveButton
+            <SaveButton
               onClick={() => {
                 dispatch(
                   edit({
@@ -98,7 +99,7 @@ const Contact = ({
               }}
             >
               Salvar
-            </S.SaveButton>
+            </SaveButton>
 
             <S.CancelAndRemoveButton onClick={cancelEdit}>
               Cancelar
