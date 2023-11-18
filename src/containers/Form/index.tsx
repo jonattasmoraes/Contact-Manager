@@ -1,5 +1,5 @@
 import { FormEvent, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 import { TitleAdd, Input, MainContainer, SaveButton } from '../../styles'
@@ -8,10 +8,13 @@ import { FormContainer, Options, Opcao, TitleForm } from './styles'
 import * as enums from '../../utils/enums/Contact'
 import Contact from '../../models/Contact'
 import { add } from '../../store/reducers/contacts'
+import { RootReducer } from '../../store'
 
 const Form = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
+
+  const contacts = useSelector((state: RootReducer) => state.contacts)
 
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -22,18 +25,31 @@ const Form = () => {
 
   const addContact = (event: FormEvent) => {
     event.preventDefault()
-    const contactToAdd = new Contact(
-      name,
-      email,
-      phone,
-      type,
-      status,
-      phoneType,
-      15
+
+    if (!name || !email || !phone) {
+      alert('Por favor, preencha todos os campos obrigatórios.')
+      return
+    }
+
+    const contactExists = contacts.items.some(
+      (contact) => contact.name.toLowerCase() === name.toLowerCase()
     )
 
-    dispatch(add(contactToAdd))
-    navigate('/')
+    if (!contactExists) {
+      const contactToAdd = new Contact(
+        name,
+        email,
+        phone,
+        type,
+        status,
+        phoneType,
+        15
+      )
+      dispatch(add(contactToAdd))
+      navigate('/')
+    } else {
+      alert('Contato já existe')
+    }
   }
 
   return (
