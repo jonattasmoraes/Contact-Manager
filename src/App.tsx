@@ -22,23 +22,10 @@ const router = createBrowserRouter([
 ])
 
 const App = () => {
-  const [isSidebarOpen, setSidebarOpen] = useState(false)
-
-  const handleSidebarToggle = () => {
-    setSidebarOpen(!isSidebarOpen)
-  }
-
   return (
     <Provider store={store}>
       <GlobalStyle />
-      <Header handleSidebarToggle={handleSidebarToggle} />
-      <MobileSidebar
-        isOpen={isSidebarOpen}
-        handleSidebarToggle={handleSidebarToggle}
-      />
-      <Container>
-        <RouterProvider router={router} />
-      </Container>
+      <RouterProvider router={router} />
     </Provider>
   )
 }

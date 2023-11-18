@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import variables from '../../styles/variables'
 
 import * as enums from '../../utils/enums/Contact'
+import { Button } from '../../styles'
 
 type TagProps = {
   type?: enums.Type
@@ -134,18 +135,6 @@ export const ActionBar = styled.div`
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding-top: 16px;
   margin-top: 16px;
-`
-
-export const Button = styled.button`
-  font-weight: 600;
-  font-size: 16px;
-  color: #fff;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  background-color: #2f3640;
-  margin-right: 16px;
 `
 
 export const CancelAndRemoveButton = styled(Button)`

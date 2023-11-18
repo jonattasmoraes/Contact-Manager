@@ -1,4 +1,6 @@
 import * as React from 'react'
+import { useNavigate } from 'react-router-dom'
+
 import Box from '@mui/material/Box'
 import Drawer from '@mui/material/Drawer'
 import IconButton from '@mui/material/IconButton'
@@ -9,6 +11,7 @@ import { Divider, List } from '@mui/material'
 import FilterCard from '../../components/filterCard'
 
 import * as enums from '../../utils/enums/Contact'
+import { Button } from '../../styles'
 
 const theme = createTheme({
   palette: {
@@ -21,12 +24,15 @@ const theme = createTheme({
 interface MobileSidebarProps {
   isOpen: boolean
   handleSidebarToggle: () => void
+  showFilters: boolean
 }
 
 export default function MobileSidebar({
   isOpen,
-  handleSidebarToggle
+  handleSidebarToggle,
+  showFilters
 }: MobileSidebarProps) {
+  const navigate = useNavigate()
   const toggleDrawer = (event: React.KeyboardEvent | React.MouseEvent) => {
     if (
       event.type === 'keydown' &&
@@ -66,47 +72,55 @@ export default function MobileSidebar({
             </Box>
             <Divider sx={{ backgroundColor: 'GrayText' }} />
             <List sx={{ p: 0 }}>
-              <FilterCard
-                value={enums.Type.FAMILIA}
-                critery="type"
-                legend="Família"
-              />
-              <FilterCard
-                value={enums.Type.AMIGOS}
-                critery="type"
-                legend="Amigos"
-              />
-              <FilterCard
-                value={enums.Type.TRABALHO}
-                critery="type"
-                legend="Trabalho"
-              />
-              <FilterCard
-                value={enums.Type.EMERGENCIA}
-                critery="type"
-                legend="Emergência"
-              />
-              <FilterCard
-                value={enums.PhoneType.CELULAR}
-                critery="phoneType"
-                legend="Celular"
-              />
-              <FilterCard
-                value={enums.PhoneType.FIXO}
-                critery="phoneType"
-                legend="Fixo"
-              />
-              <FilterCard
-                value={enums.Status.ATIVO}
-                critery="status"
-                legend="Ativo(s)"
-              />
-              <FilterCard
-                value={enums.Status.BLOQUEADO}
-                critery="status"
-                legend="Bloqueado(s)"
-              />
-              <FilterCard critery="all" legend="Todos" />
+              {showFilters ? (
+                <>
+                  <FilterCard
+                    value={enums.Type.FAMILIA}
+                    critery="type"
+                    legend="Família"
+                  />
+                  <FilterCard
+                    value={enums.Type.AMIGOS}
+                    critery="type"
+                    legend="Amigos"
+                  />
+                  <FilterCard
+                    value={enums.Type.TRABALHO}
+                    critery="type"
+                    legend="Trabalho"
+                  />
+                  <FilterCard
+                    value={enums.Type.EMERGENCIA}
+                    critery="type"
+                    legend="Emergência"
+                  />
+                  <FilterCard
+                    value={enums.PhoneType.CELULAR}
+                    critery="phoneType"
+                    legend="Celular"
+                  />
+                  <FilterCard
+                    value={enums.PhoneType.FIXO}
+                    critery="phoneType"
+                    legend="Fixo"
+                  />
+                  <FilterCard
+                    value={enums.Status.ATIVO}
+                    critery="status"
+                    legend="Ativo(s)"
+                  />
+                  <FilterCard
+                    value={enums.Status.BLOQUEADO}
+                    critery="status"
+                    legend="Bloqueado(s)"
+                  />
+                  <FilterCard critery="all" legend="Todos" />
+                </>
+              ) : (
+                <Button onClick={() => navigate('/')}>
+                  Voltar aos contatos
+                </Button>
+              )}
             </List>
           </Box>
         </Drawer>

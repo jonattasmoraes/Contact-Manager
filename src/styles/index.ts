@@ -1,6 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components'
 import variables from './variables'
-import { Button } from '../components/contact/styles'
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -53,6 +52,18 @@ export const Input = styled.input`
   color: #666666;
   border-color: #666666;
   width: 100%;
+`
+
+export const Button = styled.button`
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #2f3640;
+  margin-right: 16px;
 `
 
 export const SaveButton = styled(Button)`

@@ -5,7 +5,7 @@ import * as S from './styles'
 
 import { remove, edit } from '../../store/reducers/contacts'
 import ContactClass from '../../models/Contact'
-import { SaveButton } from '../../styles'
+import { Button, SaveButton } from '../../styles'
 
 type Props = ContactClass
 
@@ -107,7 +107,7 @@ const Contact = ({
           </>
         ) : (
           <>
-            <S.Button onClick={() => setItsEditing(true)}>Editar</S.Button>
+            <Button onClick={() => setItsEditing(true)}>Editar</Button>
             <S.CancelAndRemoveButton onClick={() => dispatch(remove(id))}>
               Deletar
             </S.CancelAndRemoveButton>
